@@ -6,7 +6,7 @@ author: TonimatasMC
 description: Insta kill mobs in Game Mode set in config file.
 prefix: InstaKillMobsInGameMode
 
-main: tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode
+main: net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode
 
 permissions:
   instakillmobsingamemode.*:
