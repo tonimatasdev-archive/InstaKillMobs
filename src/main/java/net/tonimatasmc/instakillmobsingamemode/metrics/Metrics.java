@@ -23,8 +23,8 @@ import java.util.logging.Level;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPOutputStream;
 
+@SuppressWarnings("deprecation")
 public class Metrics {
-
     private final Plugin plugin;
 
     private final MetricsBase metricsBase;
@@ -359,27 +359,24 @@ public class Metrics {
             return this;
         }
 
-        public JsonObjectBuilder appendField(String key, int value) {
+        public void appendField(String key, int value) {
             appendFieldUnescaped(key, String.valueOf(value));
-            return this;
         }
 
-        public JsonObjectBuilder appendField(String key, JsonObject object) {
+        public void appendField(String key, JsonObject object) {
             if (object == null) {
                 throw new IllegalArgumentException("JSON object must not be null");
             }
             appendFieldUnescaped(key, object.toString());
-            return this;
         }
 
-        public JsonObjectBuilder appendField(String key, JsonObject[] values) {
+        public void appendField(String key, JsonObject[] values) {
             if (values == null) {
                 throw new IllegalArgumentException("JSON values must not be null");
             }
             String escapedValues =
                     Arrays.stream(values).map(JsonObject::toString).collect(Collectors.joining(","));
             appendFieldUnescaped(key, "[" + escapedValues + "]");
-            return this;
         }
 
         private void appendFieldUnescaped(String key, String escapedValue) {

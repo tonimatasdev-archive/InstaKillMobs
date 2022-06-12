@@ -17,12 +17,12 @@ public class UpdateChecker {
             con.setConnectTimeout(timed_out);
             con.setReadTimeout(timed_out);
             String latestversion = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();
-            if (latestversion.length() <= 7 && !PluginDescription.version.equals(latestversion)) {
-                Bukkit.getConsoleSender().sendMessage(PluginDescription.prefix + ChatColor.RED + " There is a new version available. " + ChatColor.YELLOW + "(" + ChatColor.GRAY + latestversion + ChatColor.YELLOW + ")");
-                Bukkit.getConsoleSender().sendMessage(PluginDescription.prefix + ChatColor.RED + " You can download it at: " + ChatColor.WHITE + "https://www.spigotmc.org/resources/instakillmobsgamemode.96185");
+            if (latestversion.length() <= 7 && !PluginDescription.getVersion().equals(latestversion)) {
+                Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixNegative() + " There is a new version available. " + ChatColor.YELLOW + "(" + ChatColor.GRAY + latestversion + ChatColor.YELLOW + ")");
+                Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixNegative() + " You can download it at: " + ChatColor.WHITE + "https://www.spigotmc.org/resources/instakillmobsgamemode.96185");
             }
         } catch (Exception var3) {
-            Bukkit.getConsoleSender().sendMessage(PluginDescription.prefix + ChatColor.RED + " Error while checking update.");
+            Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixNegative() + " Error while checking update.");
         }
     }
 }

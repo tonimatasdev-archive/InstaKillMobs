@@ -7,15 +7,13 @@ import org.bukkit.ChatColor;
 public class MessageManager {
     public static void start() {
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
-        Bukkit.getConsoleSender().sendMessage(PluginDescription.prefix + ChatColor.DARK_GREEN + " The plugin was activated (Version: " + PluginDescription.version + ")");
-        Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "Visit: https://tonimatasmc.com");
+        Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was activated (Version: " + PluginDescription.getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
     }
 
     public static void stop() {
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
-        Bukkit.getConsoleSender().sendMessage(PluginDescription.prefix + ChatColor.DARK_GREEN + " The plugin was disabled (Version: " + PluginDescription.version + ")");
-        Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "Visit: https://tonimatasmc.com");
+        Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was disabled (Version: " + PluginDescription.getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
     }
 }
