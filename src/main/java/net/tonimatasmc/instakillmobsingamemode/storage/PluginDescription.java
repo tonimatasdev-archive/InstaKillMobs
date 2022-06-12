@@ -4,19 +4,37 @@ import net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode;
 import org.bukkit.ChatColor;
 
 public class PluginDescription {
-    public static String getprefix;
-    public static String version;
-    public static String website;
-    public static String prefix;
-    public static String name;
+    private static String version;
+    private static String prefix;
+    private static String name;
+    private static String prefixPositive;
+    private static String prefixNegative;
 
     public static void register() {
-        getprefix = InstaKillMobsInGameMode.getPlugin().getDescription().getPrefix();
-        website = InstaKillMobsInGameMode.getPlugin().getDescription().getWebsite();
         version = InstaKillMobsInGameMode.getPlugin().getDescription().getVersion();
         name = InstaKillMobsInGameMode.getPlugin().getDescription().getName();
-        prefix = ChatColor.GOLD + "[" + ChatColor.DARK_RED + getprefix + ChatColor.GOLD + "]";
+        prefix = ChatColor.GOLD + "[" + ChatColor.DARK_RED + InstaKillMobsInGameMode.getPlugin().getDescription().getPrefix() + ChatColor.GOLD + "]";
+        prefixPositive = "[" + ChatColor.DARK_GREEN + "+" + ChatColor.WHITE + "] " + ChatColor.GRAY + "InstaKillMobs: " + ChatColor.WHITE;
+        prefixNegative = "[" + ChatColor.DARK_RED + "-" + ChatColor.WHITE + "] " + ChatColor.GRAY + "InstaKillMobs: " + ChatColor.WHITE;
     }
 
+    public static String getName() {
+        return name;
+    }
 
+    public static String getVersion() {
+        return version;
+    }
+
+    public static String getPrefix() {
+        return prefix;
+    }
+
+    public static String getPrefixPositive() {
+        return prefixPositive;
+    }
+
+    public static String getPrefixNegative() {
+        return prefixNegative;
+    }
 }
