@@ -61,7 +61,9 @@ public class TabulatorCompleter implements org.bukkit.command.TabCompleter {
                 argList.add("enable");
                 argList.add("disable");
                 return argList;
-            }return argList;
-        }return null;
+            }
+            return argList;
+        }
+        return null;
     }
 }
