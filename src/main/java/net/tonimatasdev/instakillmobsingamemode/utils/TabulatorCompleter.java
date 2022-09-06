@@ -1,4 +1,4 @@
-package net.tonimatasmc.instakillmobsingamemode.utils;
+package net.tonimatasdev.instakillmobsingamemode.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

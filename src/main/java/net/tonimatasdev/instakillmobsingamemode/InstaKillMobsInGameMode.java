@@ -1,7 +1,7 @@
-package net.tonimatasmc.instakillmobsingamemode;
+package net.tonimatasdev.instakillmobsingamemode;
 
-import net.tonimatasmc.instakillmobsingamemode.manager.RegisterManager;
-import net.tonimatasmc.instakillmobsingamemode.manager.UnregisterManager;
+import net.tonimatasdev.instakillmobsingamemode.manager.RegisterManager;
+import net.tonimatasdev.instakillmobsingamemode.manager.UnregisterManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 

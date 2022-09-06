@@ -1,6 +1,6 @@
-package net.tonimatasmc.instakillmobsingamemode.events;
+package net.tonimatasdev.instakillmobsingamemode.events;
 
-import net.tonimatasmc.instakillmobsingamemode.storage.yml.List;
+import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
 import org.bukkit.GameMode;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;

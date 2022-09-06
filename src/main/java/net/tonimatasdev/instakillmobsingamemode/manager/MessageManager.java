@@ -1,6 +1,6 @@
-package net.tonimatasmc.instakillmobsingamemode.manager;
+package net.tonimatasdev.instakillmobsingamemode.manager;
 
-import net.tonimatasmc.instakillmobsingamemode.storage.PluginDescription;
+import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 

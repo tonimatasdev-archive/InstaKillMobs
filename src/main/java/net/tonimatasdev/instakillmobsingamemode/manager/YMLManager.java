@@ -1,8 +1,8 @@
-package net.tonimatasmc.instakillmobsingamemode.manager;
+package net.tonimatasdev.instakillmobsingamemode.manager;
 
-import net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode;
-import net.tonimatasmc.instakillmobsingamemode.storage.yml.Config;
-import net.tonimatasmc.instakillmobsingamemode.storage.yml.List;
+import net.tonimatasdev.instakillmobsingamemode.storage.yml.Config;
+import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
 
 public class YMLManager {
     public static void register() {

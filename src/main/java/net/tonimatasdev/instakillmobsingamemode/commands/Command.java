@@ -1,8 +1,8 @@
-package net.tonimatasmc.instakillmobsingamemode.commands;
+package net.tonimatasdev.instakillmobsingamemode.commands;
 
-import net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode;
-import net.tonimatasmc.instakillmobsingamemode.storage.PluginDescription;
-import net.tonimatasmc.instakillmobsingamemode.storage.yml.List;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
+import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;

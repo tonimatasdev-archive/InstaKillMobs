@@ -1,4 +1,4 @@
-package net.tonimatasmc.instakillmobsingamemode.manager;
+package net.tonimatasdev.instakillmobsingamemode.manager;
 
 public class UnregisterManager {
     public static void unregister() {

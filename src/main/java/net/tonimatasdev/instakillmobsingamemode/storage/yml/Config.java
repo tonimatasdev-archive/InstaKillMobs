@@ -1,6 +1,6 @@
-package net.tonimatasmc.instakillmobsingamemode.storage.yml;
+package net.tonimatasdev.instakillmobsingamemode.storage.yml;
 
-import net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
 
 import java.io.File;
 

@@ -1,13 +1,13 @@
-package net.tonimatasmc.instakillmobsingamemode.manager;
+package net.tonimatasdev.instakillmobsingamemode.manager;
 
-import net.tonimatasmc.instakillmobsingamemode.InstaKillMobsInGameMode;
-import net.tonimatasmc.instakillmobsingamemode.commands.Command;
-import net.tonimatasmc.instakillmobsingamemode.events.Hit;
-import net.tonimatasmc.instakillmobsingamemode.events.Join;
-import net.tonimatasmc.instakillmobsingamemode.metrics.Metrics;
-import net.tonimatasmc.instakillmobsingamemode.storage.PluginDescription;
-import net.tonimatasmc.instakillmobsingamemode.utils.TabulatorCompleter;
-import net.tonimatasmc.instakillmobsingamemode.utils.UpdateChecker;
+import net.tonimatasdev.instakillmobsingamemode.commands.Command;
+import net.tonimatasdev.instakillmobsingamemode.metrics.Metrics;
+import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.events.Hit;
+import net.tonimatasdev.instakillmobsingamemode.events.Join;
+import net.tonimatasdev.instakillmobsingamemode.utils.TabulatorCompleter;
+import net.tonimatasdev.instakillmobsingamemode.utils.UpdateChecker;
 
 import java.util.Objects;
 
