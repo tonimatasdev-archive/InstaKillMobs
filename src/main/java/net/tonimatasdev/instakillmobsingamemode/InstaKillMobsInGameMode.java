@@ -6,11 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
-    public static InstaKillMobsInGameMode plugin;
-
-    public static InstaKillMobsInGameMode getPlugin() {
-        return plugin;
-    }
+    private static InstaKillMobsInGameMode plugin;
 
     public void onEnable() {
         plugin = this;
@@ -19,5 +15,9 @@ public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
 
     public void onDisable() {
         UnregisterManager.unregister();
+    }
+
+    public static InstaKillMobsInGameMode getPlugin() {
+        return plugin;
     }
 }
