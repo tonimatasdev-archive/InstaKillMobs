@@ -9,10 +9,11 @@ public class Join implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        if ((List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInCreative") == null) || (List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInSurvival") == null) || (List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInAdventure") == null)) {
+        if (List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInCreative") == null || List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInSurvival") == null || List.getList().getString("Players." + event.getPlayer().getName() + ".InstaKillMobsInAdventure") == null) {
             List.getList().set("Players." + event.getPlayer().getName() + ".InstaKillMobsInCreative", false);
             List.getList().set("Players." + event.getPlayer().getName() + ".InstaKillMobsInSurvival", false);
             List.getList().set("Players." + event.getPlayer().getName() + ".InstaKillMobsInAdventure", false);
+
             List.saveList();
             List.reloadList();
         }

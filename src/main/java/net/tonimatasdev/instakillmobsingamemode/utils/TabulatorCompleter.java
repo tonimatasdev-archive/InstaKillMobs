@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 public class TabulatorCompleter implements org.bukkit.command.TabCompleter {
 
     private boolean hasPermission(CommandSender sender) {
-        if (!(sender instanceof Player)) {
-            return true;
-        } else {
+        if (sender instanceof Player) {
             return sender.hasPermission("instakillmobsingamemode");
+        } else {
+            return true;
         }
     }
 
@@ -62,8 +62,10 @@ public class TabulatorCompleter implements org.bukkit.command.TabCompleter {
                 argList.add("disable");
                 return argList;
             }
+
             return argList;
         }
+
         return null;
     }
 }
