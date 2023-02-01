@@ -15,36 +15,36 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
-    private static InstaKillMobsInGameMode plugin;
+    private static InstaKillMobsInGameMode instance;
 
     public void onEnable() {
-        plugin = this;
+        instance = this;
 
         Config.registerConfig();
         List.registerList();
 
         PluginDescription.register();
 
-        InstaKillMobsInGameMode.getPlugin().getCommand("instakillmobs").setExecutor(new Command());
-        InstaKillMobsInGameMode.getPlugin().getCommand("instakillmobs").setTabCompleter(new TabulatorCompleter());
-        InstaKillMobsInGameMode.getPlugin().getServer().getPluginManager().registerEvents(new Hit(), InstaKillMobsInGameMode.getPlugin());
-        InstaKillMobsInGameMode.getPlugin().getServer().getPluginManager().registerEvents(new Join(), InstaKillMobsInGameMode.getPlugin());
+        getCommand("instakillmobs").setExecutor(new Command());
+        getCommand("instakillmobs").setTabCompleter(new TabulatorCompleter());
+        getServer().getPluginManager().registerEvents(new Hit(), this);
+        getServer().getPluginManager().registerEvents(new Join(), this);
 
-        Metrics metrics = new Metrics(InstaKillMobsInGameMode.getPlugin(), 12803);
+        Metrics metrics = new Metrics(this, 12803);
         metrics.addCustomChart(new Metrics.SimplePie("", () -> ""));
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
         Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was activated (Version: " + PluginDescription.getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
 
-        if (InstaKillMobsInGameMode.getPlugin().getConfig().getBoolean("Config.CheckUpdate")) {
+        if (getConfig().getBoolean("Config.CheckUpdate")) {
             UpdateChecker.updateChecker();
         }
     }
 
     public void onDisable() {
-        InstaKillMobsInGameMode.getPlugin().reloadConfig();
-        InstaKillMobsInGameMode.getPlugin().saveConfig();
+        reloadConfig();
+        saveConfig();
 
         List.reloadList();
         List.saveList();
@@ -54,7 +54,7 @@ public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
     }
 
-    public static InstaKillMobsInGameMode getPlugin() {
-        return plugin;
+    public static InstaKillMobsInGameMode getInstance() {
+        return instance;
     }
 }

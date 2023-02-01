@@ -15,7 +15,6 @@ public class List {
     private static FileConfiguration list = null;
     private static File listFile = null;
 
-
     public static FileConfiguration getList() {
         if (list == null) {
             reloadList();
@@ -26,11 +25,11 @@ public class List {
 
     public static void reloadList() {
         if (list == null) {
-            listFile = new File(InstaKillMobsInGameMode.getPlugin().getDataFolder(), "list.yml");
+            listFile = new File(InstaKillMobsInGameMode.getInstance().getDataFolder(), "list.yml");
         }
 
         list = YamlConfiguration.loadConfiguration(listFile);
-        Reader defConfigStream = new InputStreamReader(Objects.requireNonNull(InstaKillMobsInGameMode.getPlugin().getResource("list.yml")), StandardCharsets.UTF_8);
+        Reader defConfigStream = new InputStreamReader(Objects.requireNonNull(InstaKillMobsInGameMode.getInstance().getResource("list.yml")), StandardCharsets.UTF_8);
         YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
         list.setDefaults(defConfig);
     }
@@ -45,7 +44,7 @@ public class List {
     }
 
     public static void registerList() {
-        listFile = new File(InstaKillMobsInGameMode.getPlugin().getDataFolder(), "list.yml");
+        listFile = new File(InstaKillMobsInGameMode.getInstance().getDataFolder(), "list.yml");
 
         if (!listFile.exists()) {
             getList().options().copyDefaults(true);

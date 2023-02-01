@@ -152,7 +152,7 @@ public class Command implements CommandExecutor {
 
                 if (args[0].equalsIgnoreCase("reload")) {
                     sender.sendMessage(PluginDescription.getPrefixPositive() + "The plugin has been reloaded");
-                    InstaKillMobsInGameMode.getPlugin().reloadConfig();
+                    InstaKillMobsInGameMode.getInstance().reloadConfig();
                     List.reloadList();
                 }
             } else {

@@ -36,21 +36,21 @@ public class TabulatorCompleter implements org.bukkit.command.TabCompleter {
                 return argList.stream().filter(a -> a.startsWith(args[0])).collect(Collectors.toList());
             }
 
-            if (args.length == 2 && (args[0].equals("creative"))) {
+            if (args.length == 2 && args[0].equals("creative")) {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     argList.add(p.getName());
                 }
                 return argList;
             }
 
-            if (args.length == 2 && (args[0].equals("survival"))) {
+            if (args.length == 2 && args[0].equals("survival")) {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     argList.add(p.getName());
                 }
                 return argList;
             }
 
-            if (args.length == 2 && (args[0].equals("adventure"))) {
+            if (args.length == 2 && args[0].equals("adventure")) {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     argList.add(p.getName());
                 }

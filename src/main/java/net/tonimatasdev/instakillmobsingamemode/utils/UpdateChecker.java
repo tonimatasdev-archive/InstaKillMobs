@@ -1,5 +1,6 @@
 package net.tonimatasdev.instakillmobsingamemode.utils;
 
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
 import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,14 +13,18 @@ import java.net.URL;
 public class UpdateChecker {
     public static void updateChecker() {
         try {
-            HttpURLConnection con = (HttpURLConnection) new URL("https://api.spigotmc.org/legacy/update.php?resource=96185").openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://api.spigotmc.org/legacy/update.php?resource=96185").openConnection();
+            int timed_out = 1250;
 
-            con.setConnectTimeout(1250);
-            con.setReadTimeout(1250);
+            connection.setConnectTimeout(timed_out);
+            connection.setReadTimeout(timed_out);
 
-            String latestVersion = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();
+            String latestVersion = (new BufferedReader(new InputStreamReader(connection.getInputStream()))).readLine();
 
-            if (latestVersion.length() <= 7 && !PluginDescription.getVersion().equals(latestVersion)) {
+            int latestVersionNumbers = Integer.parseInt(latestVersion.replaceAll("\\.", ""));
+            int pluginVersion = Integer.parseInt(InstaKillMobsInGameMode.getInstance().getDescription().getVersion().replaceAll("\\.", ""));
+
+            if (latestVersionNumbers > pluginVersion) {
                 Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixNegative() + " There is a new version available. " + ChatColor.YELLOW + "(" + ChatColor.GRAY + latestVersion + ChatColor.YELLOW + ")");
                 Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixNegative() + " You can download it at: " + ChatColor.WHITE + "https://www.spigotmc.org/resources/instakillmobsgamemode.96185");
             }
