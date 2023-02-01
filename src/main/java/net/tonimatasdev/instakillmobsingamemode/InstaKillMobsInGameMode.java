@@ -17,6 +17,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
     private static InstaKillMobsInGameMode instance;
 
+    public static InstaKillMobsInGameMode getInstance() {
+        return instance;
+    }
+
     public void onEnable() {
         instance = this;
 
@@ -52,9 +56,5 @@ public class InstaKillMobsInGameMode extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
         Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was disabled (Version: " + PluginDescription.getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
-    }
-
-    public static InstaKillMobsInGameMode getInstance() {
-        return instance;
     }
 }

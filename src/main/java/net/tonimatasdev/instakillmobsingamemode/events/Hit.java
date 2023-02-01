@@ -40,7 +40,6 @@ public class Hit implements Listener {
     }
 
 
-
     @EventHandler
     public void onHitAdventure(EntityDamageByEntityEvent event) {
         assert event.getDamager() instanceof Player;

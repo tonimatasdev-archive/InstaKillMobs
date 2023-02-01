@@ -170,18 +170,18 @@ public class Metrics {
 
         private void startSubmitting() {
             final Runnable submitTask = () -> {
-                        if (!enabled || !checkServiceEnabledSupplier.get()) {
-                            // Submitting data or service is disabled
-                            scheduler.shutdown();
-                            return;
-                        }
+                if (!enabled || !checkServiceEnabledSupplier.get()) {
+                    // Submitting data or service is disabled
+                    scheduler.shutdown();
+                    return;
+                }
 
-                        if (submitTaskConsumer != null) {
-                            submitTaskConsumer.accept(this::submitData);
-                        } else {
-                            this.submitData();
-                        }
-                    };
+                if (submitTaskConsumer != null) {
+                    submitTaskConsumer.accept(this::submitData);
+                } else {
+                    this.submitData();
+                }
+            };
             long initialDelay = (long) (1000 * 60 * (3 + Math.random() * 3));
             long secondDelay = (long) (1000 * 60 * (Math.random() * 30));
 
@@ -203,14 +203,14 @@ public class Metrics {
             baseJsonBuilder.appendField("metricsVersion", METRICS_VERSION);
             JsonObjectBuilder.JsonObject data = baseJsonBuilder.build();
             scheduler.execute(() -> {
-                        try {
-                            sendData(data);
-                        } catch (Exception e) {
-                            if (logErrors) {
-                                errorLogger.accept("Could not submit bStats metrics data", e);
-                            }
-                        }
-                    });
+                try {
+                    sendData(data);
+                } catch (Exception e) {
+                    if (logErrors) {
+                        errorLogger.accept("Could not submit bStats metrics data", e);
+                    }
+                }
+            });
         }
 
         private void sendData(JsonObjectBuilder.JsonObject data) throws Exception {
