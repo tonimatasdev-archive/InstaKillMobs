@@ -1,6 +1,6 @@
 package net.tonimatasdev.instakillmobsingamemode.storage;
 
-import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
 import org.bukkit.ChatColor;
 
 public class PluginDescription {
@@ -9,7 +9,7 @@ public class PluginDescription {
     private static String prefixNegative;
 
     public static void register() {
-        version = InstaKillMobsInGameMode.getInstance().getDescription().getVersion();
+        version = InstaKillMobs.getInstance().getDescription().getVersion();
         prefixPositive = "[" + ChatColor.DARK_GREEN + "+" + ChatColor.WHITE + "] " + ChatColor.GRAY + "InstaKillMobs: " + ChatColor.WHITE;
         prefixNegative = "[" + ChatColor.DARK_RED + "-" + ChatColor.WHITE + "] " + ChatColor.GRAY + "InstaKillMobs: " + ChatColor.WHITE;
     }

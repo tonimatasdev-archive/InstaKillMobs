@@ -1,6 +1,6 @@
 package net.tonimatasdev.instakillmobsingamemode.commands;
 
-import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
 import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
 import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
 import org.bukkit.Bukkit;
@@ -152,7 +152,7 @@ public class Command implements CommandExecutor {
 
                 if (args[0].equalsIgnoreCase("reload")) {
                     sender.sendMessage(PluginDescription.getPrefixPositive() + "The plugin has been reloaded");
-                    InstaKillMobsInGameMode.getInstance().reloadConfig();
+                    InstaKillMobs.getInstance().reloadConfig();
                     List.reloadList();
                 }
             } else {

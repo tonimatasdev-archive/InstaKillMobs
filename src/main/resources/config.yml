@@ -1,3 +1,4 @@
+updateChecker: true
+
 Config:
   Version: 1.0.9
-  CheckUpdate: true

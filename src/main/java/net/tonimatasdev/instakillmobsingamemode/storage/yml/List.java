@@ -1,6 +1,6 @@
 package net.tonimatasdev.instakillmobsingamemode.storage.yml;
 
-import net.tonimatasdev.instakillmobsingamemode.InstaKillMobsInGameMode;
+import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -25,11 +25,11 @@ public class List {
 
     public static void reloadList() {
         if (list == null) {
-            listFile = new File(InstaKillMobsInGameMode.getInstance().getDataFolder(), "list.yml");
+            listFile = new File(InstaKillMobs.getInstance().getDataFolder(), "list.yml");
         }
 
         list = YamlConfiguration.loadConfiguration(listFile);
-        Reader defConfigStream = new InputStreamReader(Objects.requireNonNull(InstaKillMobsInGameMode.getInstance().getResource("list.yml")), StandardCharsets.UTF_8);
+        Reader defConfigStream = new InputStreamReader(Objects.requireNonNull(InstaKillMobs.getInstance().getResource("list.yml")), StandardCharsets.UTF_8);
         YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
         list.setDefaults(defConfig);
     }
@@ -44,7 +44,7 @@ public class List {
     }
 
     public static void registerList() {
-        listFile = new File(InstaKillMobsInGameMode.getInstance().getDataFolder(), "list.yml");
+        listFile = new File(InstaKillMobs.getInstance().getDataFolder(), "list.yml");
 
         if (!listFile.exists()) {
             getList().options().copyDefaults(true);
