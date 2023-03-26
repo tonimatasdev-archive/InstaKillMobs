@@ -1,5 +1,6 @@
 package net.tonimatasdev.instakillmobsingamemode.commands;
 
+import net.tonimatasdev.devlib.api.command.SubCommand;
 import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
 import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
 import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
@@ -10,11 +11,32 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 
-public class Command implements CommandExecutor {
+public class Command extends SubCommand {
 
     @Override
-    public boolean onCommand(CommandSender sender, @Nullable org.bukkit.command.Command cmd, @Nullable String label, @Nullable String[] args) {
+    public String getName() {
+        return "instakillmobs";
+    }
+
+    @Override
+    public ArrayList<SubCommand> getSubCommands() {
+        return null;
+    }
+
+    @Override
+    public String getPermission() {
+        return null;
+    }
+
+    @Override
+    public int getPosition() {
+        return 0;
+    }
+
+    @Override
+    public boolean execute(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
         if (sender.hasPermission("instakillmobsingamemode.command") || sender.hasPermission("instakillmobsingamemode.cmd")) {
             assert args != null;
 

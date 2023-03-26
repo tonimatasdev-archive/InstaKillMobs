@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.inventory.ClickType;
 
 public class Hit implements Listener {
     @EventHandler
@@ -29,6 +30,7 @@ public class Hit implements Listener {
         assert event.getDamager() instanceof Player;
         Player player = (Player) event.getDamager();
 
+        ClickType
         if (List.getList().getBoolean("Players." + player.getName() + ".InstaKillMobsInSurvival")) {
             if (player.hasPermission("instakillmobsingamemode.survival")) {
                 if (player.getGameMode() == GameMode.SURVIVAL) {
