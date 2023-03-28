@@ -4,4 +4,4 @@ buildscript {
     }
 }
 
-rootProject.name = 'InstaKillMobsInGameMode'
+rootProject.name = 'InstaKillMobs'
