@@ -21,7 +21,7 @@ public class InstaKillMobs extends DevPlugin {
 
         PluginDescription.register();
 
-        registerCommand("instakillmobs", new Command(), new TabulatorCompleter());
+        //registerCommand("instakillmobs", new Command(), new TabulatorCompleter()); TODO: Fix
         registerEvent(new Hit());
         registerEvent(new Join());
 
