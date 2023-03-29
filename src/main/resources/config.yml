@@ -1,2 +1,5 @@
-updateChecker: true
-metrics: true
+updateChecker: true # Disable the update checker
+metrics: true # Disable the bStats metrics
+
+# Disable drops when player kill mob with Insta-Kill
+drop-items: true
