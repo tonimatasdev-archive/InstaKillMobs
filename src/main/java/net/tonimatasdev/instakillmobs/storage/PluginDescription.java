@@ -1,6 +1,6 @@
-package net.tonimatasdev.instakillmobsingamemode.storage;
+package net.tonimatasdev.instakillmobs.storage;
 
-import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
+import net.tonimatasdev.instakillmobs.InstaKillMobs;
 import org.bukkit.ChatColor;
 
 public class PluginDescription {

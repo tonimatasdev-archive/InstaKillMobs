@@ -1,27 +1,29 @@
-package net.tonimatasdev.instakillmobsingamemode;
+package net.tonimatasdev.instakillmobs;
 
 import net.tonimatasdev.devlib.api.DevPlugin;
-import net.tonimatasdev.instakillmobsingamemode.commands.Command;
-import net.tonimatasdev.instakillmobsingamemode.events.Hit;
-import net.tonimatasdev.instakillmobsingamemode.events.Join;
-import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
-import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
-import net.tonimatasdev.instakillmobsingamemode.utils.TabulatorCompleter;
+import net.tonimatasdev.devlib.api.config.Config;
+import net.tonimatasdev.instakillmobs.commands.PrimaryCommand;
+import net.tonimatasdev.instakillmobs.events.Hit;
+import net.tonimatasdev.instakillmobs.events.Join;
+import net.tonimatasdev.instakillmobs.storage.PluginDescription;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 public class InstaKillMobs extends DevPlugin {
     private static InstaKillMobs instance;
+    public static Config playerData;
 
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
 
-        List.registerList();
+        playerData = new Config("data\\players.yml", instance);
+        playerData.register();
 
         PluginDescription.register();
 
-        //registerCommand("instakillmobs", new Command(), new TabulatorCompleter()); TODO: Fix
+        registerCommand(new PrimaryCommand());
+
         registerEvent(new Hit());
         registerEvent(new Join());
 
@@ -45,8 +47,8 @@ public class InstaKillMobs extends DevPlugin {
         reloadConfig();
         saveConfig();
 
-        List.reloadList();
-        List.saveList();
+        playerData.reload();
+        playerData.save();
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
         Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was disabled (Version: " + PluginDescription.getVersion() + ")");

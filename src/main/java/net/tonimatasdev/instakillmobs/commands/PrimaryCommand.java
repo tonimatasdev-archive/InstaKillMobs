@@ -1,19 +1,17 @@
-package net.tonimatasdev.instakillmobsingamemode.commands;
+package net.tonimatasdev.instakillmobs.commands;
 
-import net.tonimatasdev.devlib.api.command.SubCommand;
-import net.tonimatasdev.instakillmobsingamemode.InstaKillMobs;
-import net.tonimatasdev.instakillmobsingamemode.storage.PluginDescription;
-import net.tonimatasdev.instakillmobsingamemode.storage.yml.List;
+import net.tonimatasdev.devlib.api.command.Command;
+import net.tonimatasdev.devlib.api.command.subcommands.SubCommand;
+import net.tonimatasdev.instakillmobs.InstaKillMobs;
+import net.tonimatasdev.instakillmobs.storage.PluginDescription;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 
-public class Command extends SubCommand {
+public class PrimaryCommand extends Command {
 
     @Override
     public String getName() {
@@ -31,13 +29,13 @@ public class Command extends SubCommand {
     }
 
     @Override
-    public int getPosition() {
-        return 0;
+    public String getNoPermissionMessage() {
+        return null;
     }
 
     @Override
     public boolean execute(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        if (sender.hasPermission("instakillmobsingamemode.command") || sender.hasPermission("instakillmobsingamemode.cmd")) {
+        if (sender.hasPermission("instakillmobs.command") || sender.hasPermission("instakillmobs.cmd")) {
             assert args != null;
 
             if (args.length > 1) {
@@ -51,9 +49,9 @@ public class Command extends SubCommand {
                             if (args.length == 3) {
                                 if (args[2].equalsIgnoreCase("enable")) {
 
-                                    List.getList().set("Players." + sender.getName() + ".InstaKillMobsInCreative", "true");
-                                    List.saveList();
-                                    List.reloadList();
+                                    InstaKillMobs.playerData.get().set(sender.getName() + ".creative", true);
+                                    InstaKillMobs.playerData.save();
+                                    InstaKillMobs.playerData.reload();
 
                                     if (sender.getName().equals(target.getName())) {
                                         target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in creative is enabled for you");
@@ -64,9 +62,9 @@ public class Command extends SubCommand {
                                 }
 
                                 if (args[2].equalsIgnoreCase("disable")) {
-                                    List.getList().set("Players." + sender.getName() + ".InstaKillMobsInCreative", "false");
-                                    List.saveList();
-                                    List.reloadList();
+                                    InstaKillMobs.playerData.get().set(sender.getName() + ".creative", false);
+                                    InstaKillMobs.playerData.save();
+                                    InstaKillMobs.playerData.reload();
 
                                     if (sender.getName().equals(target.getName())) {
                                         target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in creative is disabled for you");
@@ -93,9 +91,9 @@ public class Command extends SubCommand {
                         } else {
                             if (args.length == 3) {
                                 if (args[2].equalsIgnoreCase("enable")) {
-                                    List.getList().set("Players." + sender.getName() + ".InstaKillMobsInSurvival", "true");
-                                    List.saveList();
-                                    List.reloadList();
+                                    InstaKillMobs.playerData.get().set(sender.getName() + ".survival", true);
+                                    InstaKillMobs.playerData.save();
+                                    InstaKillMobs.playerData.reload();
 
                                     if (sender.getName().equals(target.getName())) {
                                         target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in survival is enabled for you");
@@ -106,9 +104,9 @@ public class Command extends SubCommand {
                                 }
 
                                 if (args[2].equalsIgnoreCase("disable")) {
-                                    List.getList().set("Players." + sender.getName() + ".InstaKillMobsInSurvival", "false");
-                                    List.saveList();
-                                    List.reloadList();
+                                    InstaKillMobs.playerData.get().set(sender.getName() + ".survival", false);
+                                    InstaKillMobs.playerData.save();
+                                    InstaKillMobs.playerData.reload();
 
                                     if (sender.getName().equals(target.getName())) {
                                         target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in survival is disabled for you");
@@ -134,9 +132,9 @@ public class Command extends SubCommand {
                             sender.sendMessage(PluginDescription.getPrefixNegative() + ("The player %target% isn't online.").replace("%target%", args[1]));
                         } else {
                             if (args[2].equalsIgnoreCase("enable")) {
-                                List.getList().set("Players." + sender.getName() + ".InstaKillMobsInAdventure", "true");
-                                List.saveList();
-                                List.reloadList();
+                                InstaKillMobs.playerData.get().set(sender.getName() + ".adventure", true);
+                                InstaKillMobs.playerData.save();
+                                InstaKillMobs.playerData.reload();
 
                                 if (sender.getName().equals(target.getName())) {
                                     target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in adventure is enabled for you");
@@ -148,9 +146,9 @@ public class Command extends SubCommand {
 
                             if (args.length == 3) {
                                 if (args[2].equalsIgnoreCase("disable")) {
-                                    List.getList().set("Players." + sender.getName() + ".InstaKillMobsInAdventure", "false");
-                                    List.saveList();
-                                    List.reloadList();
+                                    InstaKillMobs.playerData.get().set("Players." + sender.getName() + ".adventure", "false");
+                                    InstaKillMobs.playerData.save();
+                                    InstaKillMobs.playerData.reload();
 
                                     if (sender.getName().equals(target.getName())) {
                                         target.sendMessage(PluginDescription.getPrefixPositive() + "Insta kill mobs in adventure is disabled for you");
@@ -175,7 +173,7 @@ public class Command extends SubCommand {
                 if (args[0].equalsIgnoreCase("reload")) {
                     sender.sendMessage(PluginDescription.getPrefixPositive() + "The plugin has been reloaded");
                     InstaKillMobs.getInstance().reloadConfig();
-                    List.reloadList();
+                    InstaKillMobs.playerData.reload();
                 }
             } else {
                 sender.sendMessage(PluginDescription.getPrefixNegative() + "Please use: /instakillmobs <gamemode/reload/version>");
