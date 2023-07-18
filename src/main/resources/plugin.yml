@@ -1,13 +1,10 @@
 name: InstaKillMobs
-version: 1.3.0
+version: ${version}
 api-version: 1.13
 author: TonimatasDEV
-description: Insta-kill mobs in Game Mode set in config file.
-prefix: InstaKillMobs
+description: Insta kill mobs in Game Mode set in config file.
 
-depend: [DevLib]
-
-main: net.tonimatasdev.instakillmobs.InstaKillMobsInGameMode
+main: net.tonimatasdev.instakillmobs.InstaKillMobs
 
 commands:
   instakillmobs:
@@ -15,21 +12,13 @@ commands:
 
 permissions:
   instakillmobs.*:
-    description: Primary permission.
+    description: All permissions of InstaKillMobs.
     children:
-      instakillmobs.adventure: true
-      instakillmobs.creative: true
-      instakillmobs.survival: true
-      instakillmobs.admin: true
+      instakillmobs.other: true
+      instakillmobs.me: true
 
-  instakillmobs.creative:
-    description: Insta-kill mobs permission in creative.
+  instakillmobs.other:
+    description: Insta-kill mobs permission to other.
 
-  instakillmobs.survival:
-    description: Insta-kill mobs permission in survival.
-
-  instakillmobs.adventure:
-    description: Insta-kill mobs permission in adventure.
-
-  instakillmobs.admin:
-    description: Admin permission.
+  instakillmobs.me:
+    description: Insta-kill mobs permission to me.

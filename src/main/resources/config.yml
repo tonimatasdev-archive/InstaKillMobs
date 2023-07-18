@@ -1,5 +1,11 @@
 updateChecker: true # Disable the update checker
 metrics: true # Disable the bStats metrics
 
-# Disable drops when player kill mob with Insta-Kill
+# Disable or enable drops when player kills mob with Insta-Kill
 drop-items: true
+
+# Disable or enable Insta-Kill to other players.
+insta-kill-players: false
+
+activeInstaKill:
+  - Example
