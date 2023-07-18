@@ -1,37 +1,46 @@
 package net.tonimatasdev.instakillmobs.commands;
 
-import net.tonimatasdev.devlib.api.command.Command;
-import net.tonimatasdev.devlib.api.command.subcommands.SubCommand;
-import net.tonimatasdev.instakillmobs.commands.subcommands.*;
+import net.tonimatasdev.instakillmobs.util.PlayerData;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class PrimaryCommand extends Command {
+public class PrimaryCommand implements CommandExecutor {
 
     @Override
-    public String getName() {
-        return "instakillmobs";
-    }
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 1) {
+            if (sender.hasPermission("instakillmobs.other")) return true;
 
-    @Override
-    public ArrayList<SubCommand> getSubCommands() {
-        return new ArrayList<>(Arrays.asList(new Adventure(), new Creative(), new Reload(), new Survival(), new Version()));
-    }
+            Player target = Bukkit.getPlayer(args[0]);
+            if (target == null) return true;
 
-    @Override
-    public String getPermission() {
-        return null;
-    }
+            if (PlayerData.getInstaKill(target)) {
+                PlayerData.removeToInstaKill(target);
+                sender.sendMessage("You have disabled Insta-Kill mode for " + target.getName());
+                target.sendMessage(sender.getName() + " has disabled Insta-Kill mode for you.");
+            } else {
+                PlayerData.addToInstaKill(target);
+                sender.sendMessage("You have enabled Insta-Kill mode for " + target.getName());
+                target.sendMessage(sender.getName() + " has enabled Insta-Kill mode for you.");
+            }
+        } else {
+            if (!(sender instanceof Player)) return true;
+            if (sender.hasPermission("instakillmobs.me")) return true;
 
-    @Override
-    public String getNoPermissionMessage() {
-        return null;
-    }
+            Player player = (Player) sender;
 
-    @Override
-    public boolean execute(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        return true;
+            if (PlayerData.getInstaKill(player)) {
+                PlayerData.removeToInstaKill(player);
+                player.sendMessage("You have disabled Insta-Kill mode for you");
+            } else {
+                PlayerData.addToInstaKill(player);
+                player.sendMessage("You have enabled Insta-Kill mode for you");
+            }
+        }
+
+        return false;
     }
 }

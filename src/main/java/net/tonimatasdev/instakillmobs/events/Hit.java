@@ -1,6 +1,8 @@
 package net.tonimatasdev.instakillmobs.events;
 
 import net.tonimatasdev.instakillmobs.InstaKillMobs;
+import net.tonimatasdev.instakillmobs.util.PlayerData;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,21 +17,10 @@ public class Hit implements Listener {
         Player player = (Player) event.getDamager();
         LivingEntity livingEntity = (LivingEntity) event.getEntity();
 
-        switch (player.getGameMode()) {
-            case CREATIVE:
-                execute(player, livingEntity, "creative");
-                break;
-            case SURVIVAL:
-                execute(player, livingEntity, "survival");
-                break;
-            case ADVENTURE:
-                execute(player, livingEntity, "adventure");
-                break;
-        }
-    }
+        if (event.getEntity().getType() == EntityType.PLAYER && InstaKillMobs.getInstance().getConfig().getBoolean("insta-kill-players")) return;
 
-    private static void execute(Player player, LivingEntity livingEntity, String gameMode) {
-        if (InstaKillMobs.playerData.get().getBoolean(player.getName() + "." + gameMode) && player.hasPermission("instakillmobs." + gameMode)) return;
-        livingEntity.setHealth(0);
+        if (PlayerData.getInstaKill(player)) {
+            livingEntity.setHealth(0);
+        }
     }
 }

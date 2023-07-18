@@ -4,6 +4,7 @@ plugins {
 
 group = 'net.tonimatasdev'
 version = plugin_version
+archivesBaseName = "instakillmobs"
 
 repositories {
     mavenCentral()
@@ -21,10 +22,6 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
-}
-
-jar {
-    archiveFileName = "Mechanics-${project.version}.jar"
 }
 
 tasks.withType(JavaCompile).configureEach {

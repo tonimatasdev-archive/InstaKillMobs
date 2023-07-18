@@ -1,45 +1,36 @@
 package net.tonimatasdev.instakillmobs;
 
-import net.tonimatasdev.devlib.api.DevPlugin;
-import net.tonimatasdev.devlib.api.config.Config;
 import net.tonimatasdev.instakillmobs.commands.PrimaryCommand;
 import net.tonimatasdev.instakillmobs.events.Hit;
-import net.tonimatasdev.instakillmobs.events.Join;
-import net.tonimatasdev.instakillmobs.storage.PluginDescription;
+import net.tonimatasdev.instakillmobs.metrics.Metrics;
+import net.tonimatasdev.instakillmobs.util.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class InstaKillMobs extends DevPlugin {
+import java.util.Objects;
+
+public class InstaKillMobs extends JavaPlugin {
     private static InstaKillMobs instance;
-    public static Config playerData;
 
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
 
-        playerData = new Config("data\\players.yml", instance);
-        playerData.register();
+        Objects.requireNonNull(getCommand("instakillmobs")).setExecutor(new PrimaryCommand());
 
-        PluginDescription.register();
-
-        registerCommand(new PrimaryCommand());
-
-        registerEvent(new Hit());
-        registerEvent(new Join());
+        getServer().getPluginManager().registerEvents(new Hit(), this);
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
-        Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was activated (Version: " + PluginDescription.getVersion() + ")");
+        Bukkit.getConsoleSender().sendMessage("[InstaKillMobs] The plugin was activated (Version: " + this.getDescription().getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
 
         if (getConfig().getBoolean("metrics")) {
-            bStatsMetrics(12803);
+            new Metrics(this, 12803);
         }
 
         if (getConfig().getBoolean("updateChecker")) {
-            if (checkUpdateSpigot(96161)) {
-                Bukkit.getConsoleSender().sendMessage(InstaKillMobs.getInstance().getName() + ChatColor.RED + " There is a new version available.");
-                Bukkit.getConsoleSender().sendMessage(InstaKillMobs.getInstance().getName() + ChatColor.RED + " You can download it at: " + ChatColor.WHITE + "https://www.spigotmc.org/resources/perworldcommands.97003/");
-            }
+            UpdateChecker.check();
         }
     }
 
@@ -47,11 +38,8 @@ public class InstaKillMobs extends DevPlugin {
         reloadConfig();
         saveConfig();
 
-        playerData.reload();
-        playerData.save();
-
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
-        Bukkit.getConsoleSender().sendMessage(PluginDescription.getPrefixPositive() + " The plugin was disabled (Version: " + PluginDescription.getVersion() + ")");
+        Bukkit.getConsoleSender().sendMessage("[InstaKillMobs] The plugin was disabled (Version: " + this.getDescription().getVersion() + ")");
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
     }
 
