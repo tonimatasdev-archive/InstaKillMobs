@@ -1,7 +1,1 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
-
 rootProject.name = 'InstaKillMobs'
