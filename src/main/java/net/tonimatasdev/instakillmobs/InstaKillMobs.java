@@ -36,7 +36,6 @@ public class InstaKillMobs extends JavaPlugin {
 
     public void onDisable() {
         reloadConfig();
-        saveConfig();
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "<---------------------------------------->");
         Bukkit.getConsoleSender().sendMessage("[InstaKillMobs] The plugin was disabled (Version: " + this.getDescription().getVersion() + ")");
