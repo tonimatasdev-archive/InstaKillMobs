@@ -18,7 +18,7 @@ public class Hit implements Listener {
         if (event.getEntity().getType() == EntityType.PLAYER && InstaKillMobs.getInstance().getConfig().getBoolean("insta-kill-players")) return;
 
         if (PlayerData.getInstaKill(player)) {
-            event.setDamage(9999);
+            event.setDamage(Integer.MAX_VALUE);
         }
     }
 
