@@ -8,11 +8,15 @@ public class PlayerData {
     public static void addToInstaKill(Player player) {
         FileConfiguration config = InstaKillMobs.getInstance().getConfig();
         config.set("players", config.getStringList("players").add(player.getName()));
+        InstaKillMobs.getInstance().saveConfig();
+        InstaKillMobs.getInstance().reloadConfig();
     }
 
     public static void removeToInstaKill(Player player) {
         FileConfiguration config = InstaKillMobs.getInstance().getConfig();
         config.set("players", config.getStringList("players").remove(player.getName()));
+        InstaKillMobs.getInstance().saveConfig();
+        InstaKillMobs.getInstance().reloadConfig();
     }
 
     public static boolean getInstaKill(Player player) {

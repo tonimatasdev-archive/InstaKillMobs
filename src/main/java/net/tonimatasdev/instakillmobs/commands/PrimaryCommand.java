@@ -12,7 +12,7 @@ public class PrimaryCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) {
-            if (sender.hasPermission("instakillmobs.other")) return true;
+            if (!sender.hasPermission("instakillmobs.other")) return true;
 
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) return true;
@@ -28,7 +28,7 @@ public class PrimaryCommand implements CommandExecutor {
             }
         } else {
             if (!(sender instanceof Player)) return true;
-            if (sender.hasPermission("instakillmobs.me")) return true;
+            if (!sender.hasPermission("instakillmobs.me")) return true;
 
             Player player = (Player) sender;
 
