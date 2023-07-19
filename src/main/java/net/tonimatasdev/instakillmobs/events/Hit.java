@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 
 public class Hit implements Listener {
     @EventHandler
@@ -21,6 +22,17 @@ public class Hit implements Listener {
 
         if (PlayerData.getInstaKill(player)) {
             livingEntity.setHealth(0);
+        }
+    }
+
+    @EventHandler
+    private void onEntityDeath(EntityDeathEvent event) {
+        Player player = event.getEntity().getKiller();
+
+        if (player == null) return;
+
+        if (PlayerData.getInstaKill(player)) {
+            if (!InstaKillMobs.getInstance().getConfig().getBoolean("drop-items")) event.getDrops().clear();
         }
     }
 }
