@@ -4,7 +4,10 @@ plugins {
 
 group = 'net.tonimatasdev'
 version = plugin_version
-archivesBaseName = "instakillmobs"
+
+base {
+    archivesName = "InstaKillMobs"
+}
 
 repositories {
     mavenCentral()
