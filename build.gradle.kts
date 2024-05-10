@@ -4,7 +4,7 @@ plugins {
 
 val pluginVersion: String by extra
 
-group = "net.tonimatasdev"
+group = "dev.tonimatas"
 version = pluginVersion
 
 base {

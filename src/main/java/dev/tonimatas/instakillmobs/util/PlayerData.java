@@ -1,6 +1,6 @@
-package net.tonimatasdev.instakillmobs.util;
+package dev.tonimatas.instakillmobs.util;
 
-import net.tonimatasdev.instakillmobs.InstaKillMobs;
+import dev.tonimatas.instakillmobs.InstaKillMobs;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 

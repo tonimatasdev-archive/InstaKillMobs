@@ -4,7 +4,7 @@ api-version: 1.13
 author: TonimatasDEV
 description: Insta kill mobs in Game Mode set in config file.
 
-main: net.tonimatasdev.instakillmobs.InstaKillMobs
+main: dev.tonimatas.instakillmobs.InstaKillMobs
 
 commands:
   instakillmobs:

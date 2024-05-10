@@ -1,4 +1,4 @@
-package net.tonimatasdev.instakillmobs.metrics;
+package dev.tonimatas.instakillmobs.metrics;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

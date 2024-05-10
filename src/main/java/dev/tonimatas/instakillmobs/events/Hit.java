@@ -1,7 +1,7 @@
-package net.tonimatasdev.instakillmobs.events;
+package dev.tonimatas.instakillmobs.events;
 
-import net.tonimatasdev.instakillmobs.InstaKillMobs;
-import net.tonimatasdev.instakillmobs.util.PlayerData;
+import dev.tonimatas.instakillmobs.InstaKillMobs;
+import dev.tonimatas.instakillmobs.util.PlayerData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

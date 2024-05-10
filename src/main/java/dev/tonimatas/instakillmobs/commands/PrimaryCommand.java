@@ -1,6 +1,6 @@
-package net.tonimatasdev.instakillmobs.commands;
+package dev.tonimatas.instakillmobs.commands;
 
-import net.tonimatasdev.instakillmobs.util.PlayerData;
+import dev.tonimatas.instakillmobs.util.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

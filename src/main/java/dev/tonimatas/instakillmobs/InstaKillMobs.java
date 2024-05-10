@@ -1,9 +1,9 @@
-package net.tonimatasdev.instakillmobs;
+package dev.tonimatas.instakillmobs;
 
-import net.tonimatasdev.instakillmobs.commands.PrimaryCommand;
-import net.tonimatasdev.instakillmobs.events.Hit;
-import net.tonimatasdev.instakillmobs.metrics.Metrics;
-import net.tonimatasdev.instakillmobs.util.UpdateChecker;
+import dev.tonimatas.instakillmobs.commands.PrimaryCommand;
+import dev.tonimatas.instakillmobs.events.Hit;
+import dev.tonimatas.instakillmobs.metrics.Metrics;
+import dev.tonimatas.instakillmobs.util.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;

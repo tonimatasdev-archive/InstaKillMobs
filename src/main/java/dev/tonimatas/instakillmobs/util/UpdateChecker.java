@@ -1,6 +1,6 @@
-package net.tonimatasdev.instakillmobs.util;
+package dev.tonimatas.instakillmobs.util;
 
-import net.tonimatasdev.instakillmobs.InstaKillMobs;
+import dev.tonimatas.instakillmobs.InstaKillMobs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
